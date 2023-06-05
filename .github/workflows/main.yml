@@ -29,9 +29,9 @@ jobs:
       - uses: ruby/setup-ruby@v1
         with:
           bundler-cache: true
-          ruby-version: '3.1'
-      - name: Install a supported version of the Standard gem
-        run: gem install standard
+          ruby-version: '3.2'
+      - name: Install a supported version of the RuboCop gem
+        run: gem install rubocop
       - name: Compile Tests
         run: |
           yarn install --frozen-lockfile

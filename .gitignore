@@ -1,4 +1,5 @@
-/.vscode-test
-/node_modules
-/*.vsix
-/out
+*.vsix
+.vscode-test
+.ruby-version
+node_modules
+out
