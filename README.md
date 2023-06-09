@@ -112,6 +112,22 @@ Or, in `settings.json`:
 "rubocop.autocorrect": true,
 ```
 
+### rubocop.safeAutocorrect
+
+**This feature requires RuboCop 1.54+ to be enabled.**
+
+When autocorrect is enabled, `safeAutocorrect` controls its safety. By default,
+it is enabled to perform safe autocorrections. If you disable it, unsafe
+autocorrections will also be performed, you can disable it here:
+
+![SafeAutocorrect](/docs/safe-autocorrect.png)
+
+Or, in `settings.json`:
+
+```json
+"rubocop.safeAutocorrect": false,
+```
+
 ### rubocop.commandPath
 
 As described above, the extension contains logic to determine which version of

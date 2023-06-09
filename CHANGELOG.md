@@ -2,6 +2,10 @@
 
 ## master (unreleased)
 
+### New features
+
+- Support `rubocop.safeAutocorrect` option, which requires RuboCop 1.54+. (@koic)
+
 ## 0.2.0 (2023-06-29)
 
 ### New features
