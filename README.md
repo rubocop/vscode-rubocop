@@ -1,5 +1,8 @@
 # vscode-rubocop
 
+[![vscode-rubocop](https://img.shields.io/badge/-Visual%20Studio%20Code-007ACC.svg?logo=visual-studio-code&style=flat)](https://marketplace.visualstudio.com/items?itemName=rubocop.vscode-rubocop)
+[![Build Status](https://github.com/rubocop/vscode-rubocop/actions/workflows/main.yml/badge.svg)](https://github.com/rubocop/vscode-rubocop/actions/workflows/main.yml)
+
 Integrates [RuboCop](https://github.com/rubocop/rubocop) into VS Code.
 
 You can install this VS Code extension from the [Visual Studio Marketplace](https://marketplace.visualstudio.com/items?itemName=rubocop.vscode-rubocop).
