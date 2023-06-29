@@ -131,6 +131,21 @@ Or, in `settings.json`:
 }
 ```
 
+### rubocop.yjitEnabled
+
+This extension supports YJIT, which can speed up the built-in language server in RuboCop.
+The `rubocop.yjitEnabled` option is enabled by default.
+
+![YJIT Enabled](/docs/yjit-enabled.png)
+
+You can disable YJIT by unchecking.
+
+Or, in `settings.json`:
+
+```json
+"rubocop.yjitEnabled": false
+```
+
 ### Changing settings only for a specific project
 
 You may want to apply certain settings to a specific project, which you can do

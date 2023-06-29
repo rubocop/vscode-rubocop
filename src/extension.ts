@@ -21,6 +21,7 @@ import {
   DidOpenTextDocumentNotification,
   Disposable,
   Executable,
+  ExecutableOptions,
   ExecuteCommandRequest,
   LanguageClient,
   LanguageClientOptions,
@@ -256,9 +257,18 @@ async function buildExecutable(): Promise<Executable | undefined> {
     await displayError('Could not find RuboCop executable', ['Show Output', 'View Settings']);
   } else if (await supportedVersionOfRuboCop(command)) {
     const [exe, ...args] = (command).split(' ');
+    const env = { ...process.env };
+    if (getConfig<boolean>('yjitEnabled') ?? true) {
+      env.RUBY_YJIT_ENABLE = "true";
+    }
+    const options: ExecutableOptions = {
+      env: env
+    };
+
     return {
       command: exe,
-      args: args.concat('--lsp')
+      args: args.concat('--lsp'),
+      options: options
     };
   }
 }
