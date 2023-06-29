@@ -3,7 +3,7 @@
   "displayName": "RuboCop",
   "description": "VS Code extension for the RuboCop linter and code formatter.",
   "icon": "rubocop.png",
-  "version": "0.1.0",
+  "version": "0.2.0",
   "publisher": "rubocop",
   "repository": {
     "type": "git",
