@@ -100,6 +100,12 @@
             "type": "string",
             "default": "",
             "markdownDescription": "Absolute path to rubocop executable. Overrides default search order and, if missing, will not run RuboCop via Bundler or a `rubocop` executable on your PATH.\n\nSupports variables `${userHome}`, `${pathSeparator}`, and `${cwd}`."
+          },
+          "rubocop.yjitEnabled": {
+            "order": 4,
+            "type": "boolean",
+            "default": true,
+            "markdownDescription": "Use YJIT to speed up the RuboCop LSP server."
           }
         }
       }
