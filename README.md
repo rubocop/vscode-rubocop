@@ -130,6 +130,24 @@ Or, in `settings.json`:
 "rubocop.safeAutocorrect": false,
 ```
 
+### rubocop.layoutMode
+
+**This feature requires RuboCop 1.55+ to be enabled.**
+
+Run layout only cops. If you only want to enable the feature as a formatter,
+you can conveniently set it here:
+
+![LayoutMode](/docs/layout-mode.png)
+
+Or, in `settings.json`:
+
+```json
+"rubocop.layoutMode": true,
+```
+
+Furthermore, enabling autocorrect with the `editor.formatOnSave` to the effect of
+`rubocop -x` command line option.
+
 ### rubocop.commandPath
 
 As described above, the extension contains logic to determine which version of
