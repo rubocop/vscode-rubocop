@@ -6,14 +6,13 @@ You can install this VS Code extension from the [Visual Studio Marketplace](http
 
 ## Language Server Capabilities
 
-These are the capabilities of this extension, each enabled by RuboCop's [built-in LSP server](https://docs.rubocop.org/rubocop/usage/lsp.html):
+These are the capabilities of this extension, each enabled by RuboCop's [built-in LSP server](https://docs.rubocop.org/rubocop/usage/lsp.html).
 
-| Capability  | Support |
-| ------------- | ------------- |
-| Diagnostics (Linting) | ✅ |
-| Document Formatting  | ✅ |
-| Execute Command ([Trigger autocorrect](https://github.com/rubocop/vscode-rubocop#manually-triggering-a-format-with-autocorrects)) | ✅ |
-| Everything else  | ❌  |
+It supports the following capabilities:
+
+- Diagnostics (Linting)
+- Document Formatting
+- Execute Command ([Trigger autocorrect](https://github.com/rubocop/vscode-rubocop#manually-triggering-a-format-with-autocorrects))
 
 ## Requirements
 
