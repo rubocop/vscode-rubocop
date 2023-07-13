@@ -284,6 +284,9 @@ function buildLanguageClientOptions(): LanguageClientOptions {
       log(`Language server initialization failed: ${String(error)}`);
       return false;
     },
+    initializationOptions: {
+      safeAutocorrect: getConfig<boolean>('safeAutocorrect') ?? true
+    },
     revealOutputChannelOn: RevealOutputChannelOn.Never,
     outputChannel,
     synchronize: {
