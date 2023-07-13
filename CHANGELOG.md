@@ -4,6 +4,8 @@
 
 ### New features
 
+## 0.3.0 (2023-07-13)
+
 - Support `rubocop.safeAutocorrect` option, which requires RuboCop 1.54+. (@koic)
 
 ## 0.2.0 (2023-06-29)
