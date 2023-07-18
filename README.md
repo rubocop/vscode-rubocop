@@ -130,6 +130,21 @@ Or, in `settings.json`:
 "rubocop.safeAutocorrect": false,
 ```
 
+### rubocop.lintMode
+
+**This feature requires RuboCop 1.55+ to be enabled.**
+
+Run lint only cops (`rubocop -l`). If you only want to enable the feature as a linter like `ruby -w`,
+you can conveniently set it here:
+
+![LintMode](/docs/lint-mode.png)
+
+Or, in `settings.json`:
+
+```json
+"rubocop.lintMode": true,
+```
+
 ### rubocop.layoutMode
 
 **This feature requires RuboCop 1.55+ to be enabled.**
