@@ -2,6 +2,8 @@
 
 ## master (unreleased)
 
+## 0.4.0 (2023-07-26)
+
 ### New features
 
 - Support `rubocop.layoutMode` option, which requires RuboCop 1.55+. (@koic)
