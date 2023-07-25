@@ -4,7 +4,11 @@
 
 ### New features
 
+- Support `rubocop.layoutMode` option, which requires RuboCop 1.55+. (@koic)
+
 ## 0.3.0 (2023-07-13)
+
+### New features
 
 - Support `rubocop.safeAutocorrect` option, which requires RuboCop 1.54+. (@koic)
 
