@@ -54,6 +54,10 @@
         "title": "RuboCop: Format with Autocorrects"
       },
       {
+        "command": "rubocop.formatAutocorrectsAll",
+        "title": "RuboCop: Format All with Autocorrects"
+      },
+      {
         "command": "rubocop.showOutputChannel",
         "title": "RuboCop: Show Output Channel"
       }
