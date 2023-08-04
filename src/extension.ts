@@ -286,6 +286,7 @@ function buildLanguageClientOptions(): LanguageClientOptions {
     },
     initializationOptions: {
       safeAutocorrect: getConfig<boolean>('safeAutocorrect') ?? true,
+      lintMode: getConfig<boolean>('lintMode'),
       layoutMode: getConfig<boolean>('layoutMode')
     },
     revealOutputChannelOn: RevealOutputChannelOn.Never,
