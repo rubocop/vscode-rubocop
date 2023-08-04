@@ -2,6 +2,8 @@
 
 ## master (unreleased)
 
+## 0.5.0 (2023-08-05)
+
 ### New features
 
 - Support `rubocop.lintMode` option, which requires RuboCop 1.55+. (@koic)
