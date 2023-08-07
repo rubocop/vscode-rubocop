@@ -40,6 +40,7 @@ jobs:
           yarn test-compile
       - name: Setup GUI Environment
         run: |
+          sudo apt-get update
           sudo apt-get install -yq dbus-x11 ffmpeg > /dev/null
           mkdir -p ~/bin
           mkdir -p ~/var/run
