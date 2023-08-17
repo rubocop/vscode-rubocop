@@ -13,8 +13,8 @@ These are the capabilities of this extension, each enabled by RuboCop's [built-i
 
 It supports the following capabilities:
 
-- Diagnostics (Linting)
-- Document Formatting
+- Fast Diagnostics (Linting)
+- Fast Document Formatting
 - Execute Command ([Trigger autocorrect](https://github.com/rubocop/vscode-rubocop#manually-triggering-a-format-with-autocorrects))
 
 ## Requirements
