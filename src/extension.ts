@@ -96,7 +96,8 @@ function registerCommands(): Disposable[] {
     commands.registerCommand('rubocop.stop', stopLanguageServer),
     commands.registerCommand('rubocop.restart', restartLanguageServer),
     commands.registerCommand('rubocop.showOutputChannel', () => outputChannel?.show()),
-    commands.registerCommand('rubocop.formatAutocorrects', formatAutocorrects)
+    commands.registerCommand('rubocop.formatAutocorrects', formatAutocorrects),
+    commands.registerCommand('rubocop.formatAutocorrectsAll', formatAutocorrectsAll)
   ];
 }
 
@@ -400,12 +401,20 @@ async function restartLanguageServer(): Promise<void> {
 }
 
 async function formatAutocorrects(): Promise<void> {
+  await executeCommand('rubocop.formatAutocorrects');
+}
+
+async function formatAutocorrectsAll(): Promise<void> {
+  await executeCommand('rubocop.formatAutocorrectsAll');
+}
+
+async function executeCommand(command: string): Promise<void> {
   const editor = window.activeTextEditor;
   if (editor == null || languageClient == null || !supportedLanguage(editor.document.languageId)) return;
 
   try {
     await languageClient.sendRequest(ExecuteCommandRequest.type, {
-      command: 'rubocop.formatAutocorrects',
+      command,
       arguments: [{
         uri: editor.document.uri.toString(),
         version: editor.document.version

@@ -12,7 +12,16 @@ const UNFORMATTED = `class Foo
 end
 `;
 
-const FORMATTED = `class Foo
+const SAFE_FORMATTED = `class Foo
+  def bar
+    puts 'baz'
+  end
+end
+`;
+
+const UNSAFE_FORMATTED = `# frozen_string_literal: true
+
+class Foo
   def bar
     puts 'baz'
   end
@@ -48,13 +57,19 @@ suite('RuboCop', () => {
     test('format', async() => {
       const editor = await auto.createEditor(UNFORMATTED);
       await auto.formatDocument();
-      assert.equal(editor.document.getText(), FORMATTED);
+      assert.equal(editor.document.getText(), SAFE_FORMATTED);
     });
 
-    test('format with custom command', async() => {
+    test('format with custom command `rubocop.formatAutocorrects`', async() => {
       const editor = await auto.createEditor(UNFORMATTED);
       await auto.formatAutocorrects();
-      assert.equal(editor.document.getText(), FORMATTED);
+      assert.equal(editor.document.getText(), SAFE_FORMATTED);
+    });
+
+    test('format with custom command `rubocop.formatAutocorrectsAll`', async() => {
+      const editor = await auto.createEditor(UNFORMATTED);
+      await auto.formatAutocorrectsAll();
+      assert.equal(editor.document.getText(), UNSAFE_FORMATTED);
     });
   });
 });

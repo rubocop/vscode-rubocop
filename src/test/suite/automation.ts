@@ -32,6 +32,10 @@ export async function formatAutocorrects(): Promise<void> {
   return await commands.executeCommand('rubocop.formatAutocorrects');
 }
 
+export async function formatAutocorrectsAll(): Promise<void> {
+  return await commands.executeCommand('rubocop.formatAutocorrectsAll');
+}
+
 export async function restart(): Promise<void> {
   return await commands.executeCommand('rubocop.restart');
 }

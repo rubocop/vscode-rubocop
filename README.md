@@ -213,7 +213,7 @@ the extension's behavior in other workspace folders.
 
 In addition to the built-in VS Code Formatting API, you can trigger the
 extension to format and autocorrect the current file listing by running
-the command "RuboCop: Format with Autocorrects":
+the command "RuboCop: Format with Autocorrects". This is equivalent to `rubocop -a`:
 
 ![Autocorrect command](/docs/autocorrect-command.png)
 
@@ -236,6 +236,15 @@ Or, in `keybindings.json`:
   }
 ]
 ```
+
+You can also trigger the extension to format and autocorrect all the current file listing by running
+the command "RuboCop: Format All with Autocorrects". This is equivalent to `rubocop -A`:
+
+![Autocorrect all command](/docs/autocorrect-all-command.png)
+
+**This command "RuboCop: Format All with Autocorrects" requires RuboCop 1.56+ to be enabled.**
+
+You can use two autocorrect commands depending on the purpose.
 
 ## Decoding the Status Bar item
 
