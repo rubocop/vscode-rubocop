@@ -2,6 +2,8 @@
 
 ## master (unreleased)
 
+## 0.6.0 (2023-08-19)
+
 ### New features
 
 - Support `rubocop.formatAutocorrectsAll` command, which requires RuboCop 1.56+. (@koic)
