@@ -17,6 +17,9 @@ It supports the following capabilities:
 - Fast Document Formatting
 - Execute Command ([Trigger autocorrect](https://github.com/rubocop/vscode-rubocop#manually-triggering-a-format-with-autocorrects))
 
+:star2: **Pro tip**: Enabling [**Format On Save**](https://github.com/rubocop/vscode-rubocop#editorformatonsave) is recommended.
+By activating just this one setting, code gets autocorrected every time a file is saved. Don't miss out on this game-changing boost to your development experience!
+
 ## Requirements
 
 * [RuboCop](https://rubygems.org/gems/rubocop) 1.53.0+
