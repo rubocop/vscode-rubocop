@@ -3,8 +3,11 @@ To cut a release of the extension.
 1. Update `version` in package.json and CHANGELOG.md
 2. Commit and make sure the CI is green
 3. Add a release tag with the git command and push to GitHub
+4. Release to [Visual Studio Marketplace](https://marketplace.visualstudio.com/items?itemName=rubocop.vscode-rubocop)
+and [Open VSX Registry](https://open-vsx.org/extension/rubocop/vscode-rubocop).
 
 You can published the extension to Visual Studio Marketplace with either A or B below.
+And, for releasing to the Open VSX Registry, please refer to resources like https://www.gitpod.io/blog/open-vsx#publishing.
 
 ## A. Release on web site of Visual Studio Marketplace
 

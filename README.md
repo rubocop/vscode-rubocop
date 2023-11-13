@@ -7,6 +7,8 @@ This is the official VS Code extension for [RuboCop](https://github.com/rubocop/
 
 You can install this VS Code extension from the [Visual Studio Marketplace](https://marketplace.visualstudio.com/items?itemName=rubocop.vscode-rubocop).
 
+For VS Code-based IDEs like VSCodium or Eclipse Theia, the extension can be installed from the [Open VSX Registry](https://open-vsx.org/extension/rubocop/vscode-rubocop).
+
 ## Language Server Capabilities
 
 These are the capabilities of this extension, each enabled by RuboCop's [built-in LSP server](https://docs.rubocop.org/rubocop/usage/lsp.html).
