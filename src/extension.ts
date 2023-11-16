@@ -295,6 +295,7 @@ function buildLanguageClientOptions(): LanguageClientOptions {
     synchronize: {
       fileEvents: [
         workspace.createFileSystemWatcher('**/.rubocop.yml'),
+        workspace.createFileSystemWatcher('**/.rubocop_todo.yml'),
         workspace.createFileSystemWatcher('**/Gemfile.lock')
       ]
     },
