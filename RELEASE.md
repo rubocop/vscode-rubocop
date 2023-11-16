@@ -7,7 +7,7 @@ To cut a release of the extension.
 and [Open VSX Registry](https://open-vsx.org/extension/rubocop/vscode-rubocop).
 
 You can published the extension to Visual Studio Marketplace with either A or B below.
-And, for releasing to the Open VSX Registry, please refer to resources like https://www.gitpod.io/blog/open-vsx#publishing.
+And, for releasing to the Open VSX Registry, please refer to resources like https://github.com/eclipse/openvsx/wiki/Publishing-Extensions.
 
 ## A. Release on web site of Visual Studio Marketplace
 
