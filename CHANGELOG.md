@@ -2,6 +2,8 @@
 
 ## master (unreleased)
 
+## 0.7.0 (2023-11-18)
+
 ### Changes
 
 - Add watcher for .rubocop_todo.yml. (@koic)
