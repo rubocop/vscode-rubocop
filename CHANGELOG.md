@@ -2,6 +2,10 @@
 
 ## master (unreleased)
 
+### Changes
+
+- Add watcher for .rubocop_todo.yml. (@koic)
+
 ## 0.6.0 (2023-08-19)
 
 ### New features
