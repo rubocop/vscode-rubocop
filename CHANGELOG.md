@@ -2,6 +2,12 @@
 
 ## master (unreleased)
 
+## 0.8.0 (2025-04-04)
+
+### New features
+
+- Add option for supported language. (@ksss)
+
 ## 0.7.0 (2023-11-18)
 
 ### Changes
