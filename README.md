@@ -202,6 +202,22 @@ Or, in `settings.json`:
 "rubocop.yjitEnabled": false
 ```
 
+### rubocop.additionalLanguages
+
+This extension is enabled by default only for files that VS Code recognizes as **ruby** files.
+
+You can enable this extension for non-Ruby files as well using the `rubocop.additionalLanguages` option. By default, it is empty `[]`.
+
+This extension can be enabled not only for the default `ruby` files but also for `markdown` or `erb` files.
+
+![Additional Languages](/docs/additional-languages.png)
+
+Or, in `settings.json`:
+
+```json
+"rubocop.additionalLanguages": ["markdown", "erb"]
+```
+
 ### Changing settings only for a specific project
 
 You may want to apply certain settings to a specific project, which you can do

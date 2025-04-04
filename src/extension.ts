@@ -275,11 +275,16 @@ async function buildExecutable(): Promise<Executable | undefined> {
 }
 
 function buildLanguageClientOptions(): LanguageClientOptions {
+  const documentSelector = [
+    { scheme: 'file', language: 'ruby' },
+    { scheme: 'file', pattern: '**/Gemfile' }
+  ];
+  const additionalLanguages = getConfig<string[]>('additionalLanguages') ?? [];
+  for (const lang of additionalLanguages) {
+    documentSelector.push({ scheme: 'file', language: lang });
+  }
   return {
-    documentSelector: [
-      { scheme: 'file', language: 'ruby' },
-      { scheme: 'file', pattern: '**/Gemfile' }
-    ],
+    documentSelector: documentSelector,
     diagnosticCollectionName: 'rubocop',
     initializationFailedHandler: (error) => {
       log(`Language server initialization failed: ${String(error)}`);
