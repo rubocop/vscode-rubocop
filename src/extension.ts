@@ -133,8 +133,7 @@ async function displayBundlerError(e: ExecError): Promise<void> {
 
 async function isValidBundlerProject(): Promise<BundleStatus> {
   try {
-    const bundleCommand = getBundleCommand();
-    await promiseExec(`${bundleCommand} list --name-only`, { cwd: getCwd() });
+    await promiseExec(`${getBundleCommand()} list --name-only`, { cwd: getCwd() });
     return BundleStatus.valid;
   } catch (e) {
     if (!(e instanceof ExecError)) return BundleStatus.errored;
@@ -151,8 +150,7 @@ async function isValidBundlerProject(): Promise<BundleStatus> {
 
 async function isInBundle(): Promise<RuboCopBundleStatus> {
   try {
-    const bundleCommand = getBundleCommand();
-    await promiseExec(`${bundleCommand} show rubocop`, { cwd: getCwd() });
+    await promiseExec(`${getBundleCommand()} show rubocop`, { cwd: getCwd() });
     return RuboCopBundleStatus.included;
   } catch (e) {
     if (!(e instanceof ExecError)) return RuboCopBundleStatus.errored;
@@ -258,11 +256,10 @@ function getBundleCommand(): string {
 }
 
 async function getCommand(): Promise<string> {
-  if (hasCustomizedCommandPath()) {
+  if (getConfig<string>('mode') !== 'onlyRunGlobally' && await isInBundle() === RuboCopBundleStatus.included) {
+    return `${getBundleCommand()} exec rubocop`;
+  } else  if (hasCustomizedCommandPath()) {
     return resolveCommandPath();
-  } else if (getConfig<string>('mode') !== 'onlyRunGlobally' && await isInBundle() === RuboCopBundleStatus.included) {
-    const bundleCommand = getBundleCommand();
-    return `${bundleCommand} exec rubocop`;
   } else {
     return 'rubocop';
   }
