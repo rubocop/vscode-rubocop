@@ -187,6 +187,25 @@ Or, in `settings.json`:
 }
 ```
 
+### rubocop.bundleCommandPath
+
+When the extension needs to run RuboCop via Bundler (e.g., `bundle exec rubocop`), 
+it will use the system's `bundle` command by default. If you want to specify a 
+different bundle executable, you can set it here.
+
+This setting supports the same variable substitution as `commandPath`:
+- `${userHome}` - User's home directory
+- `${pathSeparator}` - OS-specific path separator
+- `${cwd}` - Current working directory
+
+Or, in `settings.json`:
+
+```json
+{
+  "rubocop.bundleCommandPath": "${userHome}/.rbenv/shims/bundle"
+}
+```
+
 ### rubocop.yjitEnabled
 
 This extension supports YJIT, which can speed up the built-in language server in RuboCop.
