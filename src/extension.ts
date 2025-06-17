@@ -133,7 +133,7 @@ async function displayBundlerError(e: ExecError): Promise<void> {
 
 async function isValidBundlerProject(): Promise<BundleStatus> {
   try {
-    await promiseExec('bundle list --name-only', { cwd: getCwd() });
+    await promiseExec(`${getBundleCommand()} list --name-only`, { cwd: getCwd() });
     return BundleStatus.valid;
   } catch (e) {
     if (!(e instanceof ExecError)) return BundleStatus.errored;
@@ -150,7 +150,7 @@ async function isValidBundlerProject(): Promise<BundleStatus> {
 
 async function isInBundle(): Promise<RuboCopBundleStatus> {
   try {
-    await promiseExec('bundle show rubocop', { cwd: getCwd() });
+    await promiseExec(`${getBundleCommand()} show rubocop`, { cwd: getCwd() });
     return RuboCopBundleStatus.included;
   } catch (e) {
     if (!(e instanceof ExecError)) return RuboCopBundleStatus.errored;
@@ -201,6 +201,11 @@ function hasCustomizedCommandPath(): boolean {
   return customCommandPath != null && customCommandPath.length > 0;
 }
 
+function hasCustomizedBundleCommandPath(): boolean {
+  const customBundleCommandPath = getConfig<string>('bundleCommandPath');
+  return customBundleCommandPath != null && customBundleCommandPath.length > 0;
+}
+
 const variablePattern = /\$\{([^}]*)\}/;
 function resolveCommandPath(): string {
   let customCommandPath = getConfig<string>('commandPath') ?? '';
@@ -222,11 +227,39 @@ function resolveCommandPath(): string {
   return customCommandPath;
 }
 
+function resolveBundleCommandPath(): string {
+  let customBundleCommandPath = getConfig<string>('bundleCommandPath') ?? '';
+
+  for (let match = variablePattern.exec(customBundleCommandPath); match != null; match = variablePattern.exec(customBundleCommandPath)) {
+    switch (match[1]) {
+      case 'cwd':
+        customBundleCommandPath = customBundleCommandPath.replace(match[0], process.cwd());
+        break;
+      case 'pathSeparator':
+        customBundleCommandPath = customBundleCommandPath.replace(match[0], path.sep);
+        break;
+      case 'userHome':
+        customBundleCommandPath = customBundleCommandPath.replace(match[0], homedir());
+        break;
+    }
+  }
+
+  return customBundleCommandPath;
+}
+
+function getBundleCommand(): string {
+  if (hasCustomizedBundleCommandPath()) {
+    return resolveBundleCommandPath();
+  } else {
+    return 'bundle';
+  }
+}
+
 async function getCommand(): Promise<string> {
-  if (hasCustomizedCommandPath()) {
+  if (getConfig<string>('mode') !== 'onlyRunGlobally' && await isInBundle() === RuboCopBundleStatus.included) {
+    return `${getBundleCommand()} exec rubocop`;
+  } else  if (hasCustomizedCommandPath()) {
     return resolveCommandPath();
-  } else if (getConfig<string>('mode') !== 'onlyRunGlobally' && await isInBundle() === RuboCopBundleStatus.included) {
-    return 'bundle exec rubocop';
   } else {
     return 'rubocop';
   }
