@@ -2,6 +2,12 @@
 
 ## master (unreleased)
 
+## 0.9.0 (2025-06-17)
+
+### New features
+
+- Support `rubocop.bundleCommandPath` option. (@gsamokovarov)
+
 ## 0.8.0 (2025-04-04)
 
 ### New features

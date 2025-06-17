@@ -189,8 +189,8 @@ Or, in `settings.json`:
 
 ### rubocop.bundleCommandPath
 
-When the extension needs to run RuboCop via Bundler (e.g., `bundle exec rubocop`), 
-it will use the system's `bundle` command by default. If you want to specify a 
+When the extension needs to run RuboCop via Bundler (e.g., `bundle exec rubocop`),
+it will use the system's `bundle` command by default. If you want to specify a
 different bundle executable, you can set it here.
 
 This setting supports the same variable substitution as `commandPath`:
