@@ -295,14 +295,13 @@ async function buildExecutable(): Promise<Executable | undefined> {
     if (getConfig<boolean>('yjitEnabled') ?? true) {
       env.RUBY_YJIT_ENABLE = "true";
     }
-    const options: ExecutableOptions = {
-      env: env
-    };
+    const options: ExecutableOptions = { env: env };
+    const customArgs = getConfig<string[]>('commandArgs') ?? [];
 
     return {
       command: exe,
-      args: args.concat('--lsp'),
-      options: options
+      args: args.concat(customArgs).concat('--lsp'),
+      options
     };
   }
 }
