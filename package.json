@@ -121,7 +121,7 @@
             "order": 6,
             "type": "string",
             "default": "",
-            "markdownDescription": "Absolute path to rubocop executable. Overrides default search order and, if missing, will not run RuboCop via Bundler or a `rubocop` executable on your PATH.\n\nSupports variables `${userHome}`, `${pathSeparator}`, and `${cwd}`."
+            "markdownDescription": "Absolute path to rubocop executable. Overrides default search order and, if missing, will not run RuboCop via Bundler or a `rubocop` executable on your PATH.\n\nNote: Command-line arguments included in this path may be ignored when RuboCop is run via Bundler. Use `rubocop.commandArgs` instead for reliable argument passing.\n\nSupports variables `${userHome}`, `${pathSeparator}`, and `${cwd}`."
           },
           "rubocop.commandArgs": {
             "order": 7,

@@ -179,6 +179,8 @@ set it here.
 This will override whatever search strategy is set in `rubocop.mode`
 (except for `disable`, in which case the extension will remain disabled).
 
+**Note:** Command-line arguments included in the executable path may be ignored when RuboCop is run via Bundler in projects with a Gemfile. For reliable argument passing, use the `rubocop.commandArgs` setting instead.
+
 Or, in `settings.json`:
 
 ```json
