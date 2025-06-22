@@ -179,6 +179,8 @@ set it here.
 This will override whatever search strategy is set in `rubocop.mode`
 (except for `disable`, in which case the extension will remain disabled).
 
+**Note:** Command-line arguments included in the executable path may be ignored when RuboCop is run via Bundler in projects with a Gemfile. For reliable argument passing, use the `rubocop.commandArgs` setting instead.
+
 Or, in `settings.json`:
 
 ```json
@@ -235,6 +237,23 @@ Or, in `settings.json`:
 
 ```json
 "rubocop.additionalLanguages": ["markdown", "erb"]
+```
+
+### rubocop.commandArgs
+
+You can pass additional command-line arguments to the RuboCop executable using the `rubocop.commandArgs` option. By default, it is empty `[]`.
+
+These arguments will be inserted before the `--lsp` flag when starting the RuboCop language server. This is useful for specifying custom configuration files, enabling additional cops, or passing other RuboCop options.
+
+Common use cases include:
+- Specifying a custom configuration file: `["--config", "/path/to/.rubocop.yml"]`
+- Requiring additional RuboCop extensions: `["--require", "rubocop-performance", "--require", "rubocop-rspec"]`
+- Setting specific RuboCop options: `["--display-cop-names", "--extra-details"]`
+
+Or, in `settings.json`:
+
+```json
+"rubocop.commandArgs": ["--config", "/path/to/.rubocop.yml", "--require", "rubocop-performance"]
 ```
 
 ### Changing settings only for a specific project
