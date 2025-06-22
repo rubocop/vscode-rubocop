@@ -2,6 +2,12 @@
 
 ## master (unreleased)
 
+## 0.10.0 (2025-06-22)
+
+### New features
+
+- Support `rubocop.commandArgs` option. (@gsamokovarov)
+
 ## 0.9.0 (2025-06-17)
 
 ### New features
