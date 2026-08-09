@@ -291,7 +291,7 @@ Or, in `keybindings.json`:
 [
   {
     "key": "ctrl+alt+cmd+f",
-    "command": "rubocop.formatAutocorrects"
+    "command": "rubocop.formatAutocorrectsCurrentDocument"
   }
 ]
 ```

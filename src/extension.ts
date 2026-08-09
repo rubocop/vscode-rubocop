@@ -96,8 +96,8 @@ function registerCommands(): Disposable[] {
     commands.registerCommand('rubocop.stop', stopLanguageServer),
     commands.registerCommand('rubocop.restart', restartLanguageServer),
     commands.registerCommand('rubocop.showOutputChannel', () => outputChannel?.show()),
-    commands.registerCommand('rubocop.formatAutocorrects', formatAutocorrects),
-    commands.registerCommand('rubocop.formatAutocorrectsAll', formatAutocorrectsAll)
+    commands.registerCommand('rubocop.formatAutocorrectsCurrentDocument', formatAutocorrects),
+    commands.registerCommand('rubocop.formatAutocorrectsAllCurrentDocument', formatAutocorrectsAll)
   ];
 }
 

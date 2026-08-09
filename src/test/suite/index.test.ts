@@ -19,6 +19,9 @@ const SAFE_FORMATTED = `class Foo
 end
 `;
 
+const UPDATED_SAFE_FORMATTED = `# Updated in the editor
+${SAFE_FORMATTED}`;
+
 const UNSAFE_FORMATTED = `# frozen_string_literal: true
 
 class Foo
@@ -60,13 +63,20 @@ suite('RuboCop', () => {
       assert.equal(editor.document.getText(), SAFE_FORMATTED);
     });
 
-    test('format with custom command `rubocop.formatAutocorrects`', async() => {
+    test('format with custom command `rubocop.formatAutocorrectsCurrentDocument`', async() => {
       const editor = await auto.createEditor(UNFORMATTED);
+      const initialVersion = editor.document.version;
+      const edited = await editor.edit(editBuilder => {
+        editBuilder.insert(editor.document.positionAt(0), '# Updated in the editor\n');
+      });
+
+      assert.ok(edited);
+      assert.ok(editor.document.version > initialVersion);
       await auto.formatAutocorrects();
-      assert.equal(editor.document.getText(), SAFE_FORMATTED);
+      assert.equal(editor.document.getText(), UPDATED_SAFE_FORMATTED);
     });
 
-    test('format with custom command `rubocop.formatAutocorrectsAll`', async() => {
+    test('format with custom command `rubocop.formatAutocorrectsAllCurrentDocument`', async() => {
       const editor = await auto.createEditor(UNFORMATTED);
       await auto.formatAutocorrectsAll();
       assert.equal(editor.document.getText(), UNSAFE_FORMATTED);

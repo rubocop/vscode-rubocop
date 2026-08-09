@@ -50,11 +50,11 @@
         "title": "RuboCop: Restart Language Server"
       },
       {
-        "command": "rubocop.formatAutocorrects",
+        "command": "rubocop.formatAutocorrectsCurrentDocument",
         "title": "RuboCop: Format with Autocorrects"
       },
       {
-        "command": "rubocop.formatAutocorrectsAll",
+        "command": "rubocop.formatAutocorrectsAllCurrentDocument",
         "title": "RuboCop: Format All with Autocorrects"
       },
       {

@@ -29,11 +29,11 @@ export async function formatDocument(): Promise<void> {
 }
 
 export async function formatAutocorrects(): Promise<void> {
-  return await commands.executeCommand('rubocop.formatAutocorrects');
+  return await commands.executeCommand('rubocop.formatAutocorrectsCurrentDocument');
 }
 
 export async function formatAutocorrectsAll(): Promise<void> {
-  return await commands.executeCommand('rubocop.formatAutocorrectsAll');
+  return await commands.executeCommand('rubocop.formatAutocorrectsAllCurrentDocument');
 }
 
 export async function restart(): Promise<void> {

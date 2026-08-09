@@ -2,6 +2,10 @@
 
 ## master (unreleased)
 
+### Bug fixes
+
+- Avoid command ID conflicts with RuboCop 1.89+ when manually triggering autocorrects.
+
 ## 0.10.0 (2025-06-22)
 
 ### New features
