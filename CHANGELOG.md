@@ -2,6 +2,8 @@
 
 ## master (unreleased)
 
+## 0.10.1 (2026-08-13)
+
 ### Bug fixes
 
 - Fix the language server failing to start with RuboCop 1.89+. (@koic)
