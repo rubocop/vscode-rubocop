@@ -20,12 +20,14 @@ import {
 import {
   DidOpenTextDocumentNotification,
   Disposable,
+  DynamicFeature,
   Executable,
   ExecutableOptions,
   ExecuteCommandRequest,
   LanguageClient,
   LanguageClientOptions,
-  RevealOutputChannelOn
+  RevealOutputChannelOn,
+  StaticFeature
 } from 'vscode-languageclient/node';
 
 class ExecError extends Error {
@@ -351,11 +353,23 @@ function buildLanguageClientOptions(): LanguageClientOptions {
   };
 }
 
+class RuboCopLanguageClient extends LanguageClient {
+  public registerFeature(feature: StaticFeature | DynamicFeature<unknown>): void {
+    // RuboCop >= 1.89 advertises `executeCommandProvider` with the same IDs this
+    // extension registers itself in registerCommands(), and the client's
+    // ExecuteCommandFeature would fail startup trying to register duplicates.
+    if ('registrationType' in feature && feature.registrationType.method === ExecuteCommandRequest.type.method) {
+      return;
+    }
+    super.registerFeature(feature);
+  }
+}
+
 async function createLanguageClient(): Promise<LanguageClient | null> {
   const run = await buildExecutable();
   if (run != null) {
     log(`Starting language server: ${run.command} ${run.args?.join(' ') ?? ''}`);
-    return new LanguageClient('RuboCop', { run, debug: run }, buildLanguageClientOptions());
+    return new RuboCopLanguageClient('RuboCop', { run, debug: run }, buildLanguageClientOptions());
   } else {
     return null;
   }
@@ -418,6 +432,7 @@ async function startLanguageServer(): Promise<void> {
     }
   } catch (error) {
     languageClient = null;
+    log(`Failed to start language server: ${String(error)}`);
     await displayError(
       'Failed to start RuboCop Language Server', ['Restart', 'Show Output']
     );
