@@ -2,6 +2,10 @@
 
 ## master (unreleased)
 
+### Bug fixes
+
+- Fix the language server failing to start with RuboCop 1.89+. (@koic)
+
 ## 0.10.0 (2025-06-22)
 
 ### New features
