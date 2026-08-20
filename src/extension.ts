@@ -271,7 +271,7 @@ const requiredGemVersion = '>= 1.53.0';
 async function supportedVersionOfRuboCop(command: string): Promise<boolean> {
   try {
     const { stdout } = await promiseExec(`${command} -v`);
-    const version = stdout.trim();
+    const version = stdout.trim().split('\n').pop()?.trim() || stdout.trim();
     if (satisfies(version, requiredGemVersion)) {
       return true;
     } else {
